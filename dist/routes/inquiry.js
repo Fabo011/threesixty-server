@@ -15,9 +15,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const customer_1 = __importDefault(require("../models/customer"));
 const router = express_1.default.Router();
-//import nodemailer from 'nodemailer';
+const nodemailer_1 = __importDefault(require("nodemailer"));
 router.post('/api/inquiry', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const data = req.body;
+    console.log(data);
     try {
         const Customers = new customer_1.default({
             firstname: data.firstname,
@@ -31,39 +32,37 @@ router.post('/api/inquiry', (req, res) => __awaiter(void 0, void 0, void 0, func
         });
         yield Customers.save();
         ///////////////////mail
-        /*  const transporter = nodemailer.createTransport({
+        const transporter = nodemailer_1.default.createTransport({
             service: 'gmail',
-            auth:{
+            auth: {
                 user: 'threesixty.webdevelopers@gmail.com',
                 pass: process.env.GMAIL,
             }
         });
-    
-            const mailList= [
-                data.email,
-            ];
-    
-        const mailOptions={
-              from: data.email,
-              to: 'threesixty.webdevelopers@gmail.com',
-              subject: 'threesixty-webdevelopers Anfrage',
-              text: `
-              Dein Register-Verify-Code für die Email ${data.email} ist: ${data.number}
-              Gib den Code ein und du kannst sofort loslegen. Vielen Dank. Dein LernplattformX Team
-                     `,
+        const mailList = [
+            data.email,
+            "email@threesixty-webdevelopers.com"
+        ];
+        const mailOptions = {
+            from: "email@threesixty-webdevelopers.com",
+            to: mailList,
+            subject: 'threesixty-webdevelopers Anfrage',
+            text: `   
+                              Wir bei threesixty-webdevelopers bestätigen deine Anfrage. Wir werden Ihre Anfrage so schnell wie möglich beantworten.
+                              Vielen Dank
+                              Deine Software Agentur
+                              `,
         };
-    
-        transporter.sendMail(mailOptions, (err, info)=>{
+        transporter.sendMail(mailOptions, (err, info) => {
             if (err) {
                 console.log(err);
-                res.status(401).send('fail Mail')
-              } else {
+                res.status(401).send('fail Mail');
+            }
+            else {
                 console.log('Email sent: ' + info.response);
-              };
+            }
+            ;
         });
-
-
-*/
         //////////////////////////
         res.status(200).send('Success');
     }

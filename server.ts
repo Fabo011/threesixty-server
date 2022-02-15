@@ -3,6 +3,7 @@ const app: Application = express();
 const port = process.env.PORT || 6060;
 import 'dotenv/config';
 import bodyParser from 'body-parser';
+import cors from 'cors';  
 
 
 ///////////////////////////////////////////////////////
@@ -39,6 +40,7 @@ connection();
 app.use(express.json({ limit: "5kb" }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true, limit: "5kb"}));
+app.use(cors());
 /////////////////////////////////////////////////////
 
 

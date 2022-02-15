@@ -8,6 +8,7 @@ const app = (0, express_1.default)();
 const port = process.env.PORT || 6060;
 require("dotenv/config");
 const body_parser_1 = __importDefault(require("body-parser"));
+const cors_1 = __importDefault(require("cors"));
 ///////////////////////////////////////////////////////
 //Security
 //////////////////////////////////////////////////////
@@ -37,6 +38,7 @@ const connect_1 = __importDefault(require("./database/connect"));
 app.use(express_1.default.json({ limit: "5kb" }));
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: true, limit: "5kb" }));
+app.use((0, cors_1.default)());
 /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 //api

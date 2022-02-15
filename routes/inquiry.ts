@@ -1,12 +1,14 @@
 import express, {Request, Response} from 'express';
 import customer from '../models/customer';
 const router = express.Router();
-//import nodemailer from 'nodemailer';
+import nodemailer from 'nodemailer';
 
 
 router.post('/api/inquiry', async(req: Request, res: Response)=>{
 
           const data = req.body;
+          console.log(data);  
+          
 
           try {
 
@@ -25,25 +27,27 @@ router.post('/api/inquiry', async(req: Request, res: Response)=>{
 
               ///////////////////mail
 
-                 /*  const transporter = nodemailer.createTransport({
+                   const transporter = nodemailer.createTransport({
                      service: 'gmail',
                      auth:{
                          user: 'threesixty.webdevelopers@gmail.com',
                          pass: process.env.GMAIL,
-                     }
+                     } 
                  });
              
                      const mailList= [
                          data.email,
+                         "email@threesixty-webdevelopers.com"
                      ];
              
                  const mailOptions={
-                       from: data.email,
-                       to: 'threesixty.webdevelopers@gmail.com', 
+                       from: "email@threesixty-webdevelopers.com",
+                       to: mailList, 
                        subject: 'threesixty-webdevelopers Anfrage',
                        text: `   
-                       Dein Register-Verify-Code für die Email ${data.email} ist: ${data.number}
-                       Gib den Code ein und du kannst sofort loslegen. Vielen Dank. Dein LernplattformX Team
+                              Wir bei threesixty-webdevelopers bestätigen deine Anfrage. Wir werden Ihre Anfrage so schnell wie möglich beantworten.
+                              Vielen Dank
+                              Deine Software Agentur
                               `,
                  };
              
@@ -57,7 +61,7 @@ router.post('/api/inquiry', async(req: Request, res: Response)=>{
                  });
      
      
-*/
+
 
               //////////////////////////
 
