@@ -38,63 +38,10 @@ app.use(express_1.default.json({ limit: "5kb" }));
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: true, limit: "5kb" }));
 /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//api
+//////////////////////////////////////////////////////
+const inquiry_1 = __importDefault(require("./routes/inquiry"));
+app.use('/', inquiry_1.default);
+/////////////////////////////////////////////////////////
 app.listen(port, () => console.log(`listen on http://localhost:${port}`));
-/*const express = require('express');
-const app = express();
-const port = process.env.PORT || 6060;
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
-const mongoose = require('mongoose');
-
-///////////////////////////////////////////////////////////////////////
-//.env
-//////////////////////////////////////////////////////////////////////
-require('dotenv').config();
-
-//////////////////////////////////////////////////////////////////////
-//neccessary
-/////////////////////////////////////////////////////////////////////
-const bodyParser = require('body-parser');
-
-/////////////////////////////////////////////////////////////////////
-//sec
-////////////////////////////////////////////////////////////////////
-const xssProtect = require('xss-clean');
-const mongoSanitize = require('express-mongo-sanitize');
-const helmet = require('helmet');
-const { secureHeapUsed } = require('crypto');
-app.use(helmet.permittedCrossDomainPolicies());
-app.use(helmet.noSniff());
-app.use(helmet.xssFilter());
-app.use(helmet.ieNoOpen());
-app.use(helmet.dnsPrefetchControl());
-app.use(helmet.expectCt());
-app.use(helmet.frameguard());
-app.use(helmet.referrerPolicy());
-app.use(helmet.hidePoweredBy());
-app.use(helmet.hsts());
-///////////////////////////////////////////////////////////////////////
-
-app.use(express.json({ limit: "5kb" }));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true, limit: "5kb"}));
-
-app.use(xssProtect());
-app.use(mongoSanitize());
-
-
-
-///////////////////////////////////////////////////////////////////////////////
-//api import
-//////////////////////////////////////////////////////////////////////////////
-
-
-
-//////////////////////////////////////////////////////////////////////////////
-//use api
-/////////////////////////////////////////////////////////////////////////////
-
-
-server.listen(port, ()=>{
-    console.log(`Server running.. http://localhost:${port}`);
-  });*/ 
