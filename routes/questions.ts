@@ -4,12 +4,12 @@ const router = express.Router();
 import nodemailer from 'nodemailer';
 
 
-router.post('/api/inquiry', async(req: Request, res: Response)=>{
+router.post('/api/question', async(req: Request, res: Response)=>{
 
           const data = req.body;
          
           try {
-              const specValue= 'Anfrage';
+            const specValue= 'Frage';
 
               const Customers = new customer({
                    spec: specValue,
@@ -17,10 +17,7 @@ router.post('/api/inquiry', async(req: Request, res: Response)=>{
                    lastname: data.lastname,
                    email: data.email,
                    number: data.number,
-                   Budget: data.Budget,
-                   ProjectChoice: data.ProjectChoice,
-                   CompanieBranche: data.CompanieBranche,
-                   ProjectDescription: data.ProjectDescription,
+                   message: data.message
               });
               await Customers.save();
 
@@ -48,8 +45,8 @@ router.post('/api/inquiry', async(req: Request, res: Response)=>{
                        subject: 'threesixty-webdevelopers Anfrage',
                        text: `Servus ${data.firstname},  
 
-hiermit Bestätigen wir deine Anfrage bei threesixty-webdevelopers. Wir bedanken uns für dein Vertrauen, deine
-Anfrage wird so schnell wie möglich bearbeitet.
+hiermit Bestätigen wir deine Frage bei threesixty-webdevelopers. Wir bedanken uns für dein Vertrauen, deine
+Frage wird so schnell wie möglich bearbeitet.
 
 Freundliche Grüße
 Dein threesixty-webdevelopers Team

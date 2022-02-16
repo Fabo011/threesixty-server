@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const customerSchema = new mongoose_1.default.Schema({
+    spec: { type: String },
     firstname: { type: String },
     lastname: { type: String },
     email: { type: String },
@@ -13,6 +14,8 @@ const customerSchema = new mongoose_1.default.Schema({
     ProjectChoice: { type: String },
     CompanieBranche: { type: String },
     ProjectDescription: { type: String },
+    //questions
+    message: { type: String },
 });
 const customer = mongoose_1.default.model('customerInquiry', customerSchema);
 exports.default = customer;

@@ -2,6 +2,7 @@ import mongoose  from "mongoose";
 
 const customerSchema = new mongoose.Schema({
     
+    spec: {type: String},
     firstname: {type: String},
     lastname: {type: String},
     email: {type: String},
@@ -10,6 +11,9 @@ const customerSchema = new mongoose.Schema({
     ProjectChoice: {type: String},
     CompanieBranche: {type: String},
     ProjectDescription: {type: String},
+
+    //questions
+    message: {type: String},
 
 });
 

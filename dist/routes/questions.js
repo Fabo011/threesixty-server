@@ -16,20 +16,18 @@ const express_1 = __importDefault(require("express"));
 const customer_1 = __importDefault(require("../models/customer"));
 const router = express_1.default.Router();
 const nodemailer_1 = __importDefault(require("nodemailer"));
-router.post('/api/inquiry', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.post('/api/question', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const data = req.body;
+    console.log(data);
     try {
-        const specValue = 'Anfrage';
+        const specValue = 'Frage';
         const Customers = new customer_1.default({
             spec: specValue,
             firstname: data.firstname,
             lastname: data.lastname,
             email: data.email,
             number: data.number,
-            Budget: data.Budget,
-            ProjectChoice: data.ProjectChoice,
-            CompanieBranche: data.CompanieBranche,
-            ProjectDescription: data.ProjectDescription,
+            message: data.message
         });
         yield Customers.save();
         ///////////////////mail
@@ -52,8 +50,8 @@ router.post('/api/inquiry', (req, res) => __awaiter(void 0, void 0, void 0, func
             subject: 'threesixty-webdevelopers Anfrage',
             text: `Servus ${data.firstname},  
 
-hiermit Bestätigen wir deine Anfrage bei threesixty-webdevelopers. Wir bedanken uns für dein Vertrauen, deine
-Anfrage wird so schnell wie möglich bearbeitet.
+hiermit Bestätigen wir deine Frage bei threesixty-webdevelopers. Wir bedanken uns für dein Vertrauen, deine
+Frage wird so schnell wie möglich bearbeitet.
 
 Freundliche Grüße
 Dein threesixty-webdevelopers Team

@@ -49,6 +49,8 @@ app.use(cors());
 //////////////////////////////////////////////////////
 import customerInquiry from './routes/inquiry';
 app.use('/', customerInquiry);
+import customerQuestion from './routes/questions';
+app.use('/', customerQuestion);
 
 /////////////////////////////////////////////////////////
 
