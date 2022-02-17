@@ -18,7 +18,6 @@ const router = express_1.default.Router();
 const nodemailer_1 = __importDefault(require("nodemailer"));
 router.post('/api/question', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const data = req.body;
-    console.log(data);
     try {
         const specValue = 'Frage';
         const Customers = new customer_1.default({

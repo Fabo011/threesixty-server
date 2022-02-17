@@ -47,5 +47,11 @@ const inquiry_1 = __importDefault(require("./routes/inquiry"));
 app.use('/', inquiry_1.default);
 const questions_1 = __importDefault(require("./routes/questions"));
 app.use('/', questions_1.default);
+const like_1 = __importDefault(require("./routes/like"));
+app.use('/', like_1.default);
+const retrieveData_1 = __importDefault(require("./routes/retrieveData"));
+app.use('/', retrieveData_1.default);
+const comments_1 = __importDefault(require("./routes/comments"));
+app.use('/', comments_1.default);
 /////////////////////////////////////////////////////////
 app.listen(port, () => console.log(`listen on http://localhost:${port}`));

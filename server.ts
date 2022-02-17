@@ -51,6 +51,12 @@ import customerInquiry from './routes/inquiry';
 app.use('/', customerInquiry);
 import customerQuestion from './routes/questions';
 app.use('/', customerQuestion);
+import Like from './routes/like';
+app.use('/', Like);
+import RetrieveData from './routes/retrieveData';
+app.use('/', RetrieveData);
+import SetComments from './routes/comments';
+app.use('/', SetComments);
 
 /////////////////////////////////////////////////////////
 
