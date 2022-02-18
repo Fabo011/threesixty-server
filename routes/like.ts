@@ -9,9 +9,8 @@ router.post('/api/like', async(req: Request, res: Response)=>{
           
           try {
 
-             if(data.like){
+             if(data.spec == 'companySoftware'){
                 const TheLike = await likeComm.findOne({spec: 'companySoftware'});
-
                 const thelike = 1;
                 let num1 = TheLike.like;
                 let num2 = thelike;
@@ -22,7 +21,42 @@ router.post('/api/like', async(req: Request, res: Response)=>{
                     spec: data.spec
                 });
 
-             };
+             }else if(data.spec == 'webApp'){
+                const TheLike = await likeComm.findOne({spec: 'webApp'});
+                const thelike = 1;
+                let num1 = TheLike.like;
+                let num2 = thelike;
+                const result = num1 + num2;
+
+                await TheLike.updateOne({
+                    like: result,
+                    spec: data.spec
+                });
+             }else if(data.spec == 'mobileApp'){
+                const TheLike = await likeComm.findOne({spec: 'mobileApp'});
+                const thelike = 1;
+                let num1 = TheLike.like;
+                let num2 = thelike;
+                const result = num1 + num2;
+
+                await TheLike.updateOne({
+                    like: result,
+                    spec: data.spec
+                });
+             }else if(data.spec == 'cyberSec'){
+                const TheLike = await likeComm.findOne({spec: 'cyberSec'});
+                const thelike = 1;
+                let num1 = TheLike.like;
+                let num2 = thelike;
+                const result = num1 + num2;
+
+                await TheLike.updateOne({
+                    like: result,
+                    spec: data.spec
+                });
+             }
+
+
            
                res.status(200).send('Success');
               
