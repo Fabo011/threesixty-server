@@ -87,6 +87,17 @@ router.post('/api/like', async(req: Request, res: Response)=>{
                     like: result,
                     spec: data.spec
                 });
+             }else if(data.spec == 'desktopApp'){
+                const TheLike = await likeComm.findOne({spec: 'desktopApp'});
+                const thelike = 1;
+                let num1 = TheLike.like;
+                let num2 = thelike;
+                const result = num1 + num2;
+
+                await TheLike.updateOne({
+                    like: result,
+                    spec: data.spec
+                });
              }
 
 
