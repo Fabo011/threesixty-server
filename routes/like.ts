@@ -54,6 +54,39 @@ router.post('/api/like', async(req: Request, res: Response)=>{
                     like: result,
                     spec: data.spec
                 });
+             }else if(data.spec == 'backend'){
+                const TheLike = await likeComm.findOne({spec: 'backend'});
+                const thelike = 1;
+                let num1 = TheLike.like;
+                let num2 = thelike;
+                const result = num1 + num2;
+
+                await TheLike.updateOne({
+                    like: result,
+                    spec: data.spec
+                });
+             }else if(data.spec == 'pwa'){
+                const TheLike = await likeComm.findOne({spec: 'pwa'});
+                const thelike = 1;
+                let num1 = TheLike.like;
+                let num2 = thelike;
+                const result = num1 + num2;
+
+                await TheLike.updateOne({
+                    like: result,
+                    spec: data.spec
+                });
+             }else if(data.spec == 'nativeApp'){
+                const TheLike = await likeComm.findOne({spec: 'nativeApp'});
+                const thelike = 1;
+                let num1 = TheLike.like;
+                let num2 = thelike;
+                const result = num1 + num2;
+
+                await TheLike.updateOne({
+                    like: result,
+                    spec: data.spec
+                });
              }
 
 
