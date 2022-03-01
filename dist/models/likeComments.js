@@ -8,7 +8,8 @@ const likeCommentSchema = new mongoose_1.default.Schema({
     spec: { type: String },
     like: { type: Number },
     comment: { type: String },
-    user: { type: String }
+    user: { type: String },
+    date: { type: String }
 });
 const likeComm = mongoose_1.default.model('likeAndComment', likeCommentSchema);
 exports.default = likeComm;

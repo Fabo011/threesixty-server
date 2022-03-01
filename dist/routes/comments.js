@@ -15,14 +15,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const likeComments_1 = __importDefault(require("../models/likeComments"));
 const router = express_1.default.Router();
+const moment_1 = __importDefault(require("moment"));
 router.post('/api/comments', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const data = req.body;
     console.log(data);
     try {
+        const date = (0, moment_1.default)().format('llll');
+        console.log(date);
         const SetComment = new likeComments_1.default({
             user: data.user,
             comment: data.comment,
-            spec: data.spec
+            spec: data.spec,
+            date: date
         });
         yield SetComment.save();
         res.status(200).send('Success');

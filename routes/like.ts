@@ -98,6 +98,61 @@ router.post('/api/like', async(req: Request, res: Response)=>{
                     like: result,
                     spec: data.spec
                 });
+             }else if(data.spec == 'cloud'){
+                const TheLike = await likeComm.findOne({spec: 'cloud'});
+                const thelike = 1;
+                let num1 = TheLike.like;
+                let num2 = thelike;
+                const result = num1 + num2;
+
+                await TheLike.updateOne({
+                    like: result,
+                    spec: data.spec
+                });
+             }else if(data.spec == 'responsive'){
+                const TheLike = await likeComm.findOne({spec: 'responsive'});
+                const thelike = 1;
+                let num1 = TheLike.like;
+                let num2 = thelike;
+                const result = num1 + num2;
+
+                await TheLike.updateOne({
+                    like: result,
+                    spec: data.spec
+                });
+             }else if(data.spec == 'single'){
+                const TheLike = await likeComm.findOne({spec: 'single'});
+                const thelike = 1;
+                let num1 = TheLike.like;
+                let num2 = thelike;
+                const result = num1 + num2;
+
+                await TheLike.updateOne({
+                    like: result,
+                    spec: data.spec
+                });
+             }else if(data.spec == 'database'){
+                const TheLike = await likeComm.findOne({spec: 'database'});
+                const thelike = 1;
+                let num1 = TheLike.like;
+                let num2 = thelike;
+                const result = num1 + num2;
+
+                await TheLike.updateOne({
+                    like: result,
+                    spec: data.spec
+                });
+             }else if(data.spec == 'frontend'){
+                const TheLike = await likeComm.findOne({spec: 'frontend'});
+                const thelike = 1;
+                let num1 = TheLike.like;
+                let num2 = thelike;
+                const result = num1 + num2;
+
+                await TheLike.updateOne({
+                    like: result,
+                    spec: data.spec
+                });
              }
 
 

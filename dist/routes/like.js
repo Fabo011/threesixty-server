@@ -18,7 +18,7 @@ const router = express_1.default.Router();
 router.post('/api/like', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const data = req.body;
     try {
-        if (data.like) {
+        if (data.spec == 'companySoftware') {
             const TheLike = yield likeComments_1.default.findOne({ spec: 'companySoftware' });
             const thelike = 1;
             let num1 = TheLike.like;
@@ -29,7 +29,83 @@ router.post('/api/like', (req, res) => __awaiter(void 0, void 0, void 0, functio
                 spec: data.spec
             });
         }
-        ;
+        else if (data.spec == 'webApp') {
+            const TheLike = yield likeComments_1.default.findOne({ spec: 'webApp' });
+            const thelike = 1;
+            let num1 = TheLike.like;
+            let num2 = thelike;
+            const result = num1 + num2;
+            yield TheLike.updateOne({
+                like: result,
+                spec: data.spec
+            });
+        }
+        else if (data.spec == 'mobileApp') {
+            const TheLike = yield likeComments_1.default.findOne({ spec: 'mobileApp' });
+            const thelike = 1;
+            let num1 = TheLike.like;
+            let num2 = thelike;
+            const result = num1 + num2;
+            yield TheLike.updateOne({
+                like: result,
+                spec: data.spec
+            });
+        }
+        else if (data.spec == 'cyberSec') {
+            const TheLike = yield likeComments_1.default.findOne({ spec: 'cyberSec' });
+            const thelike = 1;
+            let num1 = TheLike.like;
+            let num2 = thelike;
+            const result = num1 + num2;
+            yield TheLike.updateOne({
+                like: result,
+                spec: data.spec
+            });
+        }
+        else if (data.spec == 'backend') {
+            const TheLike = yield likeComments_1.default.findOne({ spec: 'backend' });
+            const thelike = 1;
+            let num1 = TheLike.like;
+            let num2 = thelike;
+            const result = num1 + num2;
+            yield TheLike.updateOne({
+                like: result,
+                spec: data.spec
+            });
+        }
+        else if (data.spec == 'pwa') {
+            const TheLike = yield likeComments_1.default.findOne({ spec: 'pwa' });
+            const thelike = 1;
+            let num1 = TheLike.like;
+            let num2 = thelike;
+            const result = num1 + num2;
+            yield TheLike.updateOne({
+                like: result,
+                spec: data.spec
+            });
+        }
+        else if (data.spec == 'nativeApp') {
+            const TheLike = yield likeComments_1.default.findOne({ spec: 'nativeApp' });
+            const thelike = 1;
+            let num1 = TheLike.like;
+            let num2 = thelike;
+            const result = num1 + num2;
+            yield TheLike.updateOne({
+                like: result,
+                spec: data.spec
+            });
+        }
+        else if (data.spec == 'desktopApp') {
+            const TheLike = yield likeComments_1.default.findOne({ spec: 'desktopApp' });
+            const thelike = 1;
+            let num1 = TheLike.like;
+            let num2 = thelike;
+            const result = num1 + num2;
+            yield TheLike.updateOne({
+                like: result,
+                spec: data.spec
+            });
+        }
         res.status(200).send('Success');
     }
     catch (error) {
