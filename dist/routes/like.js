@@ -106,6 +106,61 @@ router.post('/api/like', (req, res) => __awaiter(void 0, void 0, void 0, functio
                 spec: data.spec
             });
         }
+        else if (data.spec == 'cloud') {
+            const TheLike = yield likeComments_1.default.findOne({ spec: 'cloud' });
+            const thelike = 1;
+            let num1 = TheLike.like;
+            let num2 = thelike;
+            const result = num1 + num2;
+            yield TheLike.updateOne({
+                like: result,
+                spec: data.spec
+            });
+        }
+        else if (data.spec == 'responsive') {
+            const TheLike = yield likeComments_1.default.findOne({ spec: 'responsive' });
+            const thelike = 1;
+            let num1 = TheLike.like;
+            let num2 = thelike;
+            const result = num1 + num2;
+            yield TheLike.updateOne({
+                like: result,
+                spec: data.spec
+            });
+        }
+        else if (data.spec == 'single') {
+            const TheLike = yield likeComments_1.default.findOne({ spec: 'single' });
+            const thelike = 1;
+            let num1 = TheLike.like;
+            let num2 = thelike;
+            const result = num1 + num2;
+            yield TheLike.updateOne({
+                like: result,
+                spec: data.spec
+            });
+        }
+        else if (data.spec == 'database') {
+            const TheLike = yield likeComments_1.default.findOne({ spec: 'database' });
+            const thelike = 1;
+            let num1 = TheLike.like;
+            let num2 = thelike;
+            const result = num1 + num2;
+            yield TheLike.updateOne({
+                like: result,
+                spec: data.spec
+            });
+        }
+        else if (data.spec == 'frontend') {
+            const TheLike = yield likeComments_1.default.findOne({ spec: 'frontend' });
+            const thelike = 1;
+            let num1 = TheLike.like;
+            let num2 = thelike;
+            const result = num1 + num2;
+            yield TheLike.updateOne({
+                like: result,
+                spec: data.spec
+            });
+        }
         res.status(200).send('Success');
     }
     catch (error) {

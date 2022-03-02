@@ -39,13 +39,9 @@ router.post('/api/question', (req, res) => __awaiter(void 0, void 0, void 0, fun
                 pass: process.env.SMTPMAIL,
             },
         });
-        const mailList = [
-            data.email,
-            "email@threesixty-webdevelopers.com"
-        ];
         const mailOptions = {
             from: "email@threesixty-webdevelopers.com",
-            to: mailList,
+            to: data.email,
             subject: 'threesixty-webdevelopers Anfrage',
             text: `Servus ${data.firstname},  
 
