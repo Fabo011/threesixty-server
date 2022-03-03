@@ -34,9 +34,14 @@ router.post('/api/question', async(req: Request, res: Response)=>{
                      },
                  });
              
+                 const mailList= [
+                      data.email,
+                      "email@threesixty-webdevelopers.com"
+                   ];
+
                  const mailOptions={
                        from: "email@threesixty-webdevelopers.com",
-                       to: data.email, 
+                       to: mailList, 
                        subject: 'threesixty-webdevelopers Anfrage',
                        text: `Servus ${data.firstname},  
 
