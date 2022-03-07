@@ -13,14 +13,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const customer_1 = __importDefault(require("../models/customer"));
+const question_1 = __importDefault(require("../models/question"));
 const router = express_1.default.Router();
 const nodemailer_1 = __importDefault(require("nodemailer"));
 router.post('/api/question', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const data = req.body;
     try {
         const specValue = 'Frage';
-        const Customers = new customer_1.default({
+        const Customers = new question_1.default({
             spec: specValue,
             firstname: data.firstname,
             lastname: data.lastname,

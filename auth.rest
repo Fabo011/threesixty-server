@@ -1,0 +1,2 @@
+POST http://localhost:6060/api/authenticate
+Content-Type: application/json

@@ -8,14 +8,9 @@ const customerSchema = new mongoose_1.default.Schema({
     spec: { type: String },
     firstname: { type: String },
     lastname: { type: String },
-    email: { type: String, unique: false },
+    email: { type: String },
     number: { type: String },
-    Budget: { type: String },
-    ProjectChoice: { type: String },
-    CompanieBranche: { type: String },
-    ProjectDescription: { type: String },
-    //customer center
-    code: { type: Number },
+    message: { type: String },
 });
-const customer = mongoose_1.default.model('customerInquiry', customerSchema);
-exports.default = customer;
+const customerQuest = mongoose_1.default.model('customerQuestion', customerSchema);
+exports.default = customerQuest;

@@ -1,5 +1,5 @@
 import express, {Request, Response} from 'express';
-import customer from '../models/customer';
+import customer from '../models/question';
 const router = express.Router();
 import nodemailer from 'nodemailer';
 

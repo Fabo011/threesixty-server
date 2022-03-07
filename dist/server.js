@@ -53,5 +53,8 @@ const retrieveData_1 = __importDefault(require("./routes/retrieveData"));
 app.use('/', retrieveData_1.default);
 const comments_1 = __importDefault(require("./routes/comments"));
 app.use('/', comments_1.default);
+////////Auth Api
+const customer_auth_1 = __importDefault(require("./auth/customer-auth"));
+app.use('/', customer_auth_1.default);
 /////////////////////////////////////////////////////////
 app.listen(port, () => console.log(`listen on http://localhost:${port}`));

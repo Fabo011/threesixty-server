@@ -58,6 +58,10 @@ app.use('/', RetrieveData);
 import SetComments from './routes/comments';
 app.use('/', SetComments);
 
+////////Auth Api
+import authenticateUser from './auth/customer-auth';
+app.use('/', authenticateUser);
+
 /////////////////////////////////////////////////////////
 
 
