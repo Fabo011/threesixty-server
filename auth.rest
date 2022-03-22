@@ -1,2 +1,2 @@
-POST http://localhost:6060/api/authenticate
+POST http://localhost:6060/api/check
 Content-Type: application/json

@@ -153,7 +153,7 @@ router.post('/api/like', async(req: Request, res: Response)=>{
                     like: result,
                     spec: data.spec
                 });
-             }
+             };
 
 
            

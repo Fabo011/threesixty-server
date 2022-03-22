@@ -1,10 +1,9 @@
 import express, {Application} from 'express';
 const app: Application = express();
 const port = process.env.PORT || 6060;
-import 'dotenv/config';
 import bodyParser from 'body-parser';
 import cors from 'cors';  
-
+import cookieParser from 'cookie-parser';
 
 ///////////////////////////////////////////////////////
 //Security
@@ -40,7 +39,8 @@ connection();
 app.use(express.json({ limit: "5kb" }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true, limit: "5kb"}));
-app.use(cors());
+app.use(cors({ origin : "http://localhost:5050", credentials: true,}));
+app.use(cookieParser());
 /////////////////////////////////////////////////////
 
 
@@ -61,7 +61,8 @@ app.use('/', SetComments);
 ////////Auth Api
 import authenticateUser from './auth/customer-auth';
 app.use('/', authenticateUser);
-
+import userCheck from './auth/check';
+app.use('/', userCheck);
 /////////////////////////////////////////////////////////
 
 

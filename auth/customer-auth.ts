@@ -6,8 +6,6 @@ import nodemailer from 'nodemailer';
 router.post('/api/authenticate', async(req: Request, res: Response)=>{
 
        const data= req.body;
-       console.log(data);
-       
 
        try {
         ///////Random verify code
@@ -15,12 +13,10 @@ router.post('/api/authenticate', async(req: Request, res: Response)=>{
           return Math.floor(Math.random() *max);
         };
         const code:number = getNumber(100000000);
-         console.log(code);
          
         /////verify User
-        const user = await customer.findOne({email: data.email, lastname: data.name});
-        if(!user) return res.status(400).send('Wrong');
-        console.log(user);
+        const user = await customer.findOne({email: data.email});
+        if(!user) return res.status(400).send('No valid user');
         
 
          if(user.firstname === data.name){
@@ -48,14 +44,13 @@ router.post('/api/authenticate', async(req: Request, res: Response)=>{
                     subject: 'threesixty-webdevelopers Verify-Code',
                     text: `Hi ${user.firstname},  
 
-Your threesixty-webdevelopers Verify-Code for the email ${user.email} is:
+Your Verify-Code for the email ${user.email} is:
 ${code}.
 
 If you don´t responsible for this request, please reply this email.
 
 best regards
-Your threesixty-webdevelopers Team
-https://www.threesixty-webdevelopers.com
+
                            `,
                   attachments:[
                     {
@@ -95,14 +90,13 @@ https://www.threesixty-webdevelopers.com
                     subject: 'threesixty-webdevelopers Verify-Code',
                     text: `Servus ${user.firstname},  
 
-Dein threesixty-webdevelopers Verify-Code für die email ${user.email} ist:
+Dein Verify-Code für die email ${user.email} ist:
 ${code}.
 
 Sollten Sie keinen Verify-Code angefordert haben, bitte senden Sie uns umgehend eine Re: E-Mail dass Sie dies nicht angefordert haben.
 
 Freundliche Grüße
-Dein threesixty-webdevelopers Team
-https://www.threesixty-webdevelopers.com
+
                            `,
                   attachments:[
                     {
@@ -120,10 +114,12 @@ https://www.threesixty-webdevelopers.com
                       console.log('Email sent: ' + info.response);
                     };
               });
+            };
+            
+    
+            res.status(200).send('OK');
 
-              };
 
-              res.status(200).send('OK');
                
          }else{
            res.status(400).send('Wrong');

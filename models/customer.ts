@@ -5,7 +5,7 @@ const customerSchema = new mongoose.Schema({
     spec: {type: String},
     firstname: {type: String},
     lastname: {type: String},
-    email: {type: String, unique: false},
+    email: {type: String},
     number: {type: String},
     Budget: {type: String},
     ProjectChoice: {type: String},
@@ -13,7 +13,7 @@ const customerSchema = new mongoose.Schema({
     ProjectDescription: {type: String},
 
     //customer center
-    code: {type: Number},
+    code: {type: String},
 
 });
 

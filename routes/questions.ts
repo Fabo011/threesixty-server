@@ -45,12 +45,11 @@ router.post('/api/question', async(req: Request, res: Response)=>{
                        subject: 'threesixty-webdevelopers Anfrage',
                        text: `Servus ${data.firstname},  
 
-hiermit Bestätigen wir deine Frage bei threesixty-webdevelopers. Wir bedanken uns für dein Vertrauen, deine
+hiermit Bestätigen wir deine Frage bei deinem Unternehmen. Wir bedanken uns für dein Vertrauen, deine
 Frage wird so schnell wie möglich bearbeitet.
 
 Freundliche Grüße
-Dein threesixty-webdevelopers Team
-https://www.threesixty-webdevelopers.com
+
                               `,
                      attachments:[
                        {

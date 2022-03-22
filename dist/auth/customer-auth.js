@@ -18,7 +18,6 @@ const router = express_1.default.Router();
 const nodemailer_1 = __importDefault(require("nodemailer"));
 router.post('/api/authenticate', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const data = req.body;
-    console.log(data);
     try {
         ///////Random verify code
         function getNumber(max) {
@@ -26,12 +25,10 @@ router.post('/api/authenticate', (req, res) => __awaiter(void 0, void 0, void 0,
         }
         ;
         const code = getNumber(100000000);
-        console.log(code);
         /////verify User
-        const user = yield customer_1.default.findOne({ email: data.email, lastname: data.name });
+        const user = yield customer_1.default.findOne({ email: data.email });
         if (!user)
             return res.status(400).send('Wrong');
-        console.log(user);
         if (user.firstname === data.name) {
             //save code to user
             yield user.updateOne({ code: code });
@@ -83,47 +80,47 @@ https://www.threesixty-webdevelopers.com
                 //German Mail
             }
             else {
-                const transporter = nodemailer_1.default.createTransport({
+                /*  const transporter = nodemailer.createTransport({
                     host: "threesixty-webdevelopers.com",
                     port: 465,
                     secure: true,
                     auth: {
-                        user: "email@threesixty-webdevelopers.com",
-                        pass: process.env.SMTPMAIL,
+                      user: "email@threesixty-webdevelopers.com",
+                      pass: process.env.SMTPMAIL,
                     },
                 });
-                const mailOptions = {
-                    from: "email@threesixty-webdevelopers.com",
-                    to: user.email,
-                    subject: 'threesixty-webdevelopers Verify-Code',
-                    text: `Servus ${user.firstname},  
-
-Dein threesixty-webdevelopers Verify-Code für die email ${user.email} ist:
-${code}.
-
-Sollten Sie keinen Verify-Code angefordert haben, bitte senden Sie uns umgehend eine Re: E-Mail dass Sie dies nicht angefordert haben.
-
-Freundliche Grüße
-Dein threesixty-webdevelopers Team
-https://www.threesixty-webdevelopers.com
-                           `,
-                    attachments: [
-                        {
-                            filename: "logo.png",
-                            path: "images/logo.png"
-                        }
+  
+                const mailOptions={
+                      from: "email@threesixty-webdevelopers.com",
+                      to: user.email,
+                      subject: 'threesixty-webdevelopers Verify-Code',
+                      text: `Servus ${user.firstname},
+  
+  Dein threesixty-webdevelopers Verify-Code für die email ${user.email} ist:
+  ${code}.
+  
+  Sollten Sie keinen Verify-Code angefordert haben, bitte senden Sie uns umgehend eine Re: E-Mail dass Sie dies nicht angefordert haben.
+  
+  Freundliche Grüße
+  Dein threesixty-webdevelopers Team
+  https://www.threesixty-webdevelopers.com
+                             `,
+                    attachments:[
+                      {
+                        filename: "logo.png",
+                        path: "images/logo.png"
+                      }
                     ]
                 };
-                transporter.sendMail(mailOptions, (err, info) => {
+            
+                transporter.sendMail(mailOptions, (err, info)=>{
                     if (err) {
                         console.log(err);
-                        res.status(401).send('fail Mail');
-                    }
-                    else {
+                        res.status(401).send('fail Mail')
+                      } else {
                         console.log('Email sent: ' + info.response);
-                    }
-                    ;
-                });
+                      };
+                });*/
             }
             ;
             res.status(200).send('OK');

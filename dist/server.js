@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 const port = process.env.PORT || 6060;
-require("dotenv/config");
 const body_parser_1 = __importDefault(require("body-parser"));
 const cors_1 = __importDefault(require("cors"));
+const cookie_parser_1 = __importDefault(require("cookie-parser"));
 ///////////////////////////////////////////////////////
 //Security
 //////////////////////////////////////////////////////
@@ -39,6 +39,7 @@ app.use(express_1.default.json({ limit: "5kb" }));
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: true, limit: "5kb" }));
 app.use((0, cors_1.default)());
+app.use((0, cookie_parser_1.default)());
 /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 //api
@@ -56,5 +57,7 @@ app.use('/', comments_1.default);
 ////////Auth Api
 const customer_auth_1 = __importDefault(require("./auth/customer-auth"));
 app.use('/', customer_auth_1.default);
+const check_1 = __importDefault(require("./auth/check"));
+app.use('/', check_1.default);
 /////////////////////////////////////////////////////////
 app.listen(port, () => console.log(`listen on http://localhost:${port}`));

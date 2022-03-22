@@ -7,11 +7,9 @@ import moment from 'moment';
 router.post('/api/comments', async(req: Request, res: Response)=>{
 
           const data = req.body;
-          console.log(data);
           
           try {
                 const date = moment().format('llll'); 
-                console.log(date);
                              
  
                  const SetComment = new likeComm({
